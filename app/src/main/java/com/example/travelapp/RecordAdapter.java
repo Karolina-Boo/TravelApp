@@ -53,23 +53,6 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.ViewHolder
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.record_item,
                                         viewGroup,false);
         ViewHolder holder = new ViewHolder(view);
-
-        //接口回调
-        /*if(listener != null) {
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onItemClickListener(v);
-                }
-            });
-            view.setOnLongClickListener(new View.OnLongClickListener() {
-                @Override
-                public boolean onLongClick(View v) {
-                    listener.onItemLongClickListener(v);
-                    return true;
-                }
-            });
-        }*/
         return holder;
     }
 

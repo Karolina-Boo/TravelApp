@@ -42,8 +42,6 @@ public class TravelRecord extends TitleTravelRecord {
         adapter.setOnItemClickLitener(new RecordAdapter.OnItemClickLitener() {
             @Override
             public void onItemClick(View view, int position) {
-                //String id = infoBeen.get(position).getId();
-                //String id = infoBeen.get(position).getId();
                 position = recyclerView.getChildAdapterPosition(view);
                 Intent intent;
                 switch (position) {

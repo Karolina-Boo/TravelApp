@@ -12,7 +12,22 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
+import com.amap.api.maps2d.AMap;
+import com.amap.api.maps2d.MapView;
+
 public class MainActivity extends AppCompatActivity {
+
+    private MapView mapView;//地图控件
+    private AMap aMap;//地图对象
+
+    //定位需要的声明
+    private AMapLocationClient mLocationClient = null;//定位发起端
+    private AMapLocationClientOption mLocationOption = null;//定位参数
+    private AMapLocationListener mListener = null;//定位监听器
+    private boolean isFirstLoc = true;//用于判断是否重新定位
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
         if (actionbar != null){
             actionbar.hide();
         }
+
+        //显示地图
+        mapView = (MapView) findViewById(R.id.map);
+        //必须要写
+        mapView.onCreate(savedInstanceState);
+        //获取地图对象
+        aMap = mapView.getMap();
+
         Button titleHistory = (Button)findViewById(R.id.title_history);
         Button titleNewRoute = (Button)findViewById(R.id.title_newroute);
         titleHistory.setOnClickListener(new View.OnClickListener() {
